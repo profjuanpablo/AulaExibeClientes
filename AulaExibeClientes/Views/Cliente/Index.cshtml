@@ -1,0 +1,25 @@
+﻿
+@{
+    //recuperar a lista que está em ViewBag
+
+    var clientes = ViewBag.Clientes as List<Cliente>;
+}
+
+<table class="table">
+    <tr>
+        <td>ID</td>
+        <td>Nome</td>
+        <td>Email</td>
+    </tr>
+
+
+@foreach (var cliente in clientes)
+{
+    <tr>
+        <td><a href="@Url.Action("detalhes","cliente",new {id=cliente.Id})">@cliente.Id</a></td>
+        <td>@cliente.Nome </td>
+       <td> @cliente.Email</td>
+    </tr>
+    
+}
+</table>
